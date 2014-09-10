@@ -1,0 +1,16 @@
+{
+  "name": "afterloader.js",
+  "version": "0.0.1",
+  "main": [
+    "./afterloader.js"
+  ],
+  "ignore": [
+    "Gruntfile.js",
+    "spec",
+    "package.json",
+    "*.md"
+  ],
+  "dependencies": {
+    "jasmine": ">= 2.0.0"
+  }
+}

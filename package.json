@@ -1,0 +1,29 @@
+{
+  "name": "afterloader",
+  "version": "0.0.1",
+  "author": {
+    "name": "Rodrigo Alves",
+    "email": "rodrigovieira1994@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodrigoalvesvieira/afterloader.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "~1.3.2",
+    "grunt": "~0.4.4",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-jsonlint": "1.0.4",
+    "jasmine-node": "~1.14.3",
+    "uglify-js": "~2.4.13"
+  },
+  "scripts": {
+    "build": "npm install && grunt",
+    "start": "grunt watch",
+    "test": "grunt"
+  }
+}
