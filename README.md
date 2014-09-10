@@ -3,9 +3,66 @@
 A concept project on HTML image loading on responsive pages
 
 [![Build Status](https://secure.travis-ci.org/rodrigoalvesvieira/afterload.js.png)](http://travis-ci.org/rodrigoalvesvieira/afterload.js)
+[![DevDependencies Status](http://img.shields.io/david/dev/rodrigoalvesvieira/afterload.js.svg?style=flat)](https://david-dm.org/rodrigoalvesvieira/afterload.js#info=devDependencies)
 
 ## Motivation
 
+We needed to make sure the browser would always render the correct images depending on the current browser's
+`window.devicePixelRatio`.
+
+## The Idea
+
+Load your stylesheets, render all your image tags with their `src` attributes blank,
+and attach a `data` attribute to each one of your `img` tags, where the value of this attribute is the
+actual image file name.
+
+Now, in your app's assets directory, separate in directories the images for every device type. Now create a hash mapping the `window.devicePixelRation` values to the directories in your app's assets path.
+
+Initialize afterload.js with whatever data attribute you're using and pass your ration/path hash too!
+afterload.js will do the magic!
+
+## Usage
+
+First, declare the hash of device pixel ratios (`window.devicePixelRatio`) and their
+correspondent image path in your app:
+
+```javascript
+var ratiosImages = {
+  1: "1_0x",
+  1.5: "1_5x",
+  2: "2_0x",
+  3: "3_0x"
+};
+```
+
+Then you can call afterload.js via Jquery:
+
+```javascript
+$(document).ready(function () {
+  new afterload("data-image", ratiosImages);
+}
+```
+
+Or via vanilla JavaScript:
+
+```javascript
+(function() {
+  new afterload("data-src", ratiosImages);
+})();
+```
+
+###### Changing where to look for the images
+
+By default, afterload.js assumes the base path for the images is `images`. So if your images live in `http://yourapp.com/images` you're fine.
+If that is not the case, you must tell afterload.js to use the correct path:
+
+```javascript
+// Suppose the images in your app are in /assets/pictures instead of /images
+
+(function() {
+  new afterload("data-src", ratiosImages, "assets/pictures"); // Will look for images in http://yourapp.com/assets/pictures
+})();
+```
 
 ## Build
 
@@ -41,38 +98,6 @@ $ grunt concat
 ```
 
 Will generate a file in `dist/afterload.js`.
-
-## Usage
-
-First, declare the hash of device pixel ratios (`window.devicePixelRatio`) and their
-correspondent image path in your app:
-
-```javascript
-var ratiosImages = {
-  1: "1_0x",
-  1.5: "1_5x",
-  2: "2_0x",
-  3: "3_0x"
-};
-```
-
-Then you can call afterload.js via Jquery:
-
-```javascript
-$(document).ready(function () {
-  var load = new afterload("data-image", ratiosImages);
-}
-```
-
-Or via vanilla JavaScript:
-
-```javascript
-document.onreadystatechange = function () {
-  if (state == 'complete') {
-    var load = new afterload("data-image", ratiosImages);
-  }
-};
-```
 
 ## Testing
 

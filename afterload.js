@@ -1,7 +1,8 @@
-function afterload(dataSelector, _ratios) {
+function afterload(dataSelector, _ratios, _basePath) {
   this.dataSelector = dataSelector;
   this.path = undefined;
   this.ratiosImages = _ratios;
+  this.basePath = _basePath || "images";
 
   var self = this;
 
@@ -29,7 +30,7 @@ function afterload(dataSelector, _ratios) {
       var fileFullPath = image.getAttribute(this.dataSelector),
           fileNameIndex = fileFullPath.lastIndexOf("/") + 1,
           filename = fileFullPath.substr(fileNameIndex),
-          imageNewPath = "./images/" + this.getPixelRatio() + "/" + filename,
+          imageNewPath = "./" + self.basePath + "/" + this.getPixelRatio() + "/" + filename,
           imageFileName = image.setAttribute('src', imageNewPath);
     }
   };

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>afterload.js example 1</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="lead">Demo 1 - afterload.js</h1>
+      <div class="row">
+        <div class="image-container col-md-6">
+          <img src="" data-src= "images/bola.jpg" alt="" />
+        </div>
+
+        <div class="image-container col-md-6">
+          <img src="" data-src= "images/bule.jpg" alt="" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="image-container col-md-6">
+          <img src="" data-src= "images/peteca.jpg" alt="" />
+        </div>
+
+        <div class="image-container col-md-6">
+          <img src="" data-src= "images/tv.jpg" alt="" />
+        </div>
+      </div>
+
+    </div>
+
+    <script src="../../afterload.js"></script>
+    <script>
+
+    (function() {
+      var ratiosImages = {
+        1: "1_0x",
+        1.5: "1_5x",
+        2: "2_0x",
+        3: "3_0x"
+      };
+
+      var load = new afterload("data-src", ratiosImages, "assets/pictures");
+    })();
+
+    </script>
+
+  </body>
+</html>
