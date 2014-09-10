@@ -1,2 +1,0 @@
-describe("afterloader.js", function() {
-});

@@ -1,50 +1,85 @@
-# afterloader.js
+# afterload.js
 
-[![Build Status](https://secure.travis-ci.org/rodrigoalvesvieira/afterloader.js.png)](http://travis-ci.org/rodrigoalvesvieira/afterloader.js)
+A concept project on HTML image loading
+
+[![Build Status](https://secure.travis-ci.org/rodrigoalvesvieira/afterload.js.png)](http://travis-ci.org/rodrigoalvesvieira/afterload.js)
 
 ## Build
 
-Os seguintes comandos resolvem as dependências do projeto e geram sua versão comprimida pronta para a distribuição:
+The following commands solve the dependencies and generate its compressed version ready to distribution:
 
 ```shell
-$ npm install   - Instala as dependências via NPM
+$ npm install   - Install all the dependencies via NPM
 
-$ bower install - Instala as dependências via Bower
+$ bower install - Install dependencies via Bower
 
-$ npm run build - Realize o build através do Grunt.js e NPM
+$ npm run build - Run the build through Grunt.js and NPM
 ```
 
-###### Qualidade de código
+###### Code quality
 
-O seguinte comando utiliza o [JSHint] para alertar o desenvolvedor sobre possíveis problemas no código bem como oferece sugestão de melhorias.
-Esse comando sempre deverá retornar sucesso, caso contrário algum código indevido foi introduzido e deverá ser melhorado.
+The following command uses [JSHint] to alert the developer about potential problems in the code and it also
+suggests improvements.
+
+This command must **always** be successful, if it is not, then some wrong stuff has been added to the code
+and must be fixed.
+
 
 ```shell
 $ grunt lint
 ```
 
-##### Gerando build alterável
+##### Generating a changeable build
 
-Caso você queira gerar o build alterável, isto é, não comprimido do projeto, utilize o seguinte comando:
+If you want to generate a changeable build, that is, not a compressed file, run the following command:
 
 ```shell
 $ grunt concat
 ```
 
-Vai gerar um arquivo em `dist/afterloader.js`.
+Will generate a file in `dist/afterload.js`.
 
-## Uso
+## Usage
 
-pending
+First, declare the hash of device pixel ratios (`window.devicePixelRatio`) and their
+correspondent image path in your app:
 
-## Teste
+```javascript
+var ratiosImages = {
+  1: "1_0x",
+  1.5: "1_5x",
+  2: "2_0x",
+  3: "3_0x"
+};
+```
 
-o afterloader.js é testado por comportamento (BDD) através da biblioteca [Jasmine].
-Antes de executar a suíte de testes é necessário dar o build no projeto:
+Then you can call afterload.js via Jquery:
+
+```javascript
+$(document).ready(function () {
+  var load = new afterload("data-image", ratiosImages);
+}
+```
+
+Or via vanilla JavaScript:
+
+```javascript
+document.onreadystatechange = function () {
+  if (state == 'complete') {
+    var load = new afterload("data-image", ratiosImages);
+  }
+};
+```
+
+## Testing
+
+afterload.js is tested with the [Jasmine] lib.
+
+Before you run the test suite, make sure you build the project:
 
 `$ npm run build`
 
-Uma vez que o build tiver sido feito, para executar a suíte de testes apenas abra o arquivo `AfterloaderSpec.html`.
+Once the build has been done, to execute the test suite, just open the file `spec/afterloadSpec.html`.
 
 ## Author
 

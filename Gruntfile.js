@@ -2,11 +2,11 @@
  * (c) Copyright 2014 Rodrigo Alves
  */
 module.exports = function (grunt) {
-  var sourceFiles = ["afterloader.js"];
+  var sourceFiles = ["afterload.js"];
 
   // Project configuration.
   grunt.initConfig({
-    my_src_files: ["afterloader.js"],
+    my_src_files: ["afterload.js"],
 
     pkg: grunt.file.readJSON('package.json'),
     uglify: {

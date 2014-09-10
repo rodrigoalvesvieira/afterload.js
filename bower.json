@@ -1,8 +1,8 @@
 {
-  "name": "afterloader.js",
+  "name": "afterload.js",
   "version": "0.0.1",
   "main": [
-    "./afterloader.js"
+    "./afterload.js"
   ],
   "ignore": [
     "Gruntfile.js",

@@ -1,0 +1,2 @@
+describe("afterload.js", function() {
+});
