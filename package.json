@@ -1,5 +1,6 @@
 {
   "name": "afterload",
+  "description": "A concept project on HTML image loading on responsive pages",
   "version": "0.0.1",
   "author": {
     "name": "Rodrigo Alves",

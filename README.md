@@ -1,8 +1,11 @@
 # afterload.js
 
-A concept project on HTML image loading
+A concept project on HTML image loading on responsive pages
 
 [![Build Status](https://secure.travis-ci.org/rodrigoalvesvieira/afterload.js.png)](http://travis-ci.org/rodrigoalvesvieira/afterload.js)
+
+## Motivation
+
 
 ## Build
 
