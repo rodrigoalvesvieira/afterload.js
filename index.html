@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Afterload.js by rodrigoalvesvieira</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Afterload.js</h1>
+        <p>A concept project on HTML image loading on responsive pages</p>
+        <p class="view"><a href="https://github.com/rodrigoalvesvieira/afterload.js">View the Project on GitHub <small>rodrigoalvesvieira/afterload.js</small></a></p>
+        <ul>
+          <li><a href="https://github.com/rodrigoalvesvieira/afterload.js/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/rodrigoalvesvieira/afterload.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/rodrigoalvesvieira/afterload.js">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="afterloadjs" class="anchor" href="#afterloadjs"><span class="octicon octicon-link"></span></a>afterload.js</h1>
+
+<p>A concept project on HTML image loading on responsive pages</p>
+
+<p><a href="http://travis-ci.org/rodrigoalvesvieira/afterload.js"><img src="https://secure.travis-ci.org/rodrigoalvesvieira/afterload.js.png" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/rodrigoalvesvieira/afterload.js"><img src="https://codeclimate.com/github/rodrigoalvesvieira/afterload.js/badges/gpa.svg" alt="Code Climate"></a></p>
+
+<h2>
+<a name="motivation" class="anchor" href="#motivation"><span class="octicon octicon-link"></span></a>Motivation</h2>
+
+<h2>
+<a name="build" class="anchor" href="#build"><span class="octicon octicon-link"></span></a>Build</h2>
+
+<p>The following commands solve the dependencies and generate its compressed version ready to distribution:</p>
+
+<pre lang="shell"><code>$ npm install   - Install all the dependencies via NPM
+
+$ bower install - Install dependencies via Bower
+
+$ npm run build - Run the build through Grunt.js and NPM
+</code></pre>
+
+<h6>
+<a name="code-quality" class="anchor" href="#code-quality"><span class="octicon octicon-link"></span></a>Code quality</h6>
+
+<p>The following command uses <a href="http://www.jshint.com/">JSHint</a> to alert the developer about potential problems in the code and it also
+suggests improvements.</p>
+
+<p>This command must <strong>always</strong> be successful, if it is not, then some wrong stuff has been added to the code
+and must be fixed.</p>
+
+<pre lang="shell"><code>$ grunt lint
+</code></pre>
+
+<h5>
+<a name="generating-a-changeable-build" class="anchor" href="#generating-a-changeable-build"><span class="octicon octicon-link"></span></a>Generating a changeable build</h5>
+
+<p>If you want to generate a changeable build, that is, not a compressed file, run the following command:</p>
+
+<pre lang="shell"><code>$ grunt concat
+</code></pre>
+
+<p>Will generate a file in <code>dist/afterload.js</code>.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>First, declare the hash of device pixel ratios (<code>window.devicePixelRatio</code>) and their
+correspondent image path in your app:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">ratiosImages</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="mi">1</span><span class="o">:</span> <span class="s2">"1_0x"</span><span class="p">,</span>
+  <span class="mf">1.5</span><span class="o">:</span> <span class="s2">"1_5x"</span><span class="p">,</span>
+  <span class="mi">2</span><span class="o">:</span> <span class="s2">"2_0x"</span><span class="p">,</span>
+  <span class="mi">3</span><span class="o">:</span> <span class="s2">"3_0x"</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Then you can call afterload.js via Jquery:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">load</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">afterload</span><span class="p">(</span><span class="s2">"data-image"</span><span class="p">,</span> <span class="nx">ratiosImages</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Or via vanilla JavaScript:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">state</span> <span class="o">==</span> <span class="s1">'complete'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">load</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">afterload</span><span class="p">(</span><span class="s2">"data-image"</span><span class="p">,</span> <span class="nx">ratiosImages</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+<h2>
+<a name="testing" class="anchor" href="#testing"><span class="octicon octicon-link"></span></a>Testing</h2>
+
+<p>afterload.js is tested with the <a href="http://jasmine.github.io/2.0/introduction.html">Jasmine</a> lib.</p>
+
+<p>Before you run the test suite, make sure you build the project:</p>
+
+<p><code>$ npm run build</code></p>
+
+<p>Once the build has been done, to execute the test suite, just open the file <code>spec/afterloadSpec.html</code>.</p>
+
+<h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<ul>
+<li>Rodrigo Alves <a href="mailto:rodrigovieira1994@gmail.com">rodrigovieira1994@gmail.com</a>
+</li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Released under the MIT License. See LICENSE.txt for details.</p>
+
+<p>Copyright (c) 2012-2014 Rodrigo Alves.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/rodrigoalvesvieira">rodrigoalvesvieira</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
