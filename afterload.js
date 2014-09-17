@@ -1,3 +1,10 @@
+/**
+ * afterload.js
+ *
+ * Copyright 2014, Rodrigo Alves
+ * Licensed under MIT
+ *
+*/
 function afterload(dataSelector, _ratios, _basePath) {
   this.dataSelector = dataSelector;
   this.path = undefined;
