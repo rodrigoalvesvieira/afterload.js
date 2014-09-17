@@ -109,6 +109,10 @@ Before you run the test suite, make sure you build the project:
 
 Once the build has been done, to execute the test suite, just open the file `spec/afterloadSpec.html`.
 
+## Who's using it?
+
+* In Loco Media http://www.inlocomedia.com/
+
 ## Author
 
 * Rodrigo Alves <rodrigovieira1994@gmail.com>
