@@ -20,7 +20,7 @@ function afterload(dataSelector, _ratios, _basePath) {
     for (var i = 0; i < ratios.length; i++) {
       var index = ratios[i];
 
-      if (window.devicePixelRatio === Number.parseInt(ratios[i])) {
+      if (window.devicePixelRatio === parseInt(ratios[i])) {
         baseImagePath = self.ratiosImages[index];
         this.path = baseImagePath;
         return self.ratiosImages[index];
