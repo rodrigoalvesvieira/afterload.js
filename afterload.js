@@ -34,11 +34,13 @@ function afterload(dataSelector, _ratios, _basePath) {
     for (var i = 0; i < images.length; i++) {
       var image = images[i];
 
-      var fileFullPath = image.getAttribute(this.dataSelector),
-          fileNameIndex = fileFullPath.lastIndexOf("/") + 1,
-          filename = fileFullPath.substr(fileNameIndex),
-          imageNewPath = "./" + self.basePath + "/" + this.getPixelRatio() + "/" + filename,
-          imageFileName = image.setAttribute('src', imageNewPath);
+      if (image.getAttribute(this.dataSelector) !== null) {
+        var fileFullPath = image.getAttribute(this.dataSelector),
+            fileNameIndex = fileFullPath.lastIndexOf("/") + 1,
+            filename = fileFullPath.substr(fileNameIndex),
+            imageNewPath = "./" + self.basePath + "/" + this.getPixelRatio() + "/" + filename,
+            imageFileName = image.setAttribute('src', imageNewPath);
+      }
     }
   };
 
