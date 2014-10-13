@@ -99,6 +99,17 @@ $ grunt concat
 
 Will generate a file in `dist/afterload.js`.
 
+## Support
+
+afterload.js has been tested in the following browsers in their respective versions. Perhaps (most certainly, in fact)
+the library works for even older versions of these browsers.
+
+* Chrome 38+
+* Safari 7.0.6+
+* Firefox 32.0.2+
+* Opera 24.0+
+* Internet Explorer 10+
+
 ## Testing
 
 afterload.js is tested with the [Jasmine] lib.

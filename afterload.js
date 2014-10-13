@@ -5,11 +5,12 @@
  * Licensed under MIT
  *
 */
-function afterload(dataSelector, _ratios, _basePath) {
+function afterload(dataSelector, _ratios, _basePath, defaultDir) {
   this.dataSelector = dataSelector;
   this.path = undefined;
   this.ratiosImages = _ratios;
   this.basePath = _basePath || "images";
+  this.defaultDir = defaultDir || "default";
 
   var self = this;
 
@@ -20,12 +21,14 @@ function afterload(dataSelector, _ratios, _basePath) {
     for (var i = 0; i < ratios.length; i++) {
       var index = ratios[i];
 
-      if (window.devicePixelRatio === Number.parseInt(ratios[i])) {
+      if (window.devicePixelRatio === parseInt(ratios[i])) {
         baseImagePath = self.ratiosImages[index];
         this.path = baseImagePath;
         return self.ratiosImages[index];
       }
     }
+
+    return this.defaultDir;
   };
 
   this.init = function() {
